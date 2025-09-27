@@ -1,5 +1,6 @@
 package com.example.x_0
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -61,6 +62,7 @@ class GameActivity : AppCompatActivity() {
 
         tvPlayer1.text = intent?.extras?.getString("player1").toString()
         tvPlayer2.text = intent?.extras?.getString("player2").toString()
+        nuevapartida(this.tvPlayer1)
     }
     fun play(btn: View){
         val mybtn: Button= btn as Button
@@ -69,12 +71,21 @@ class GameActivity : AppCompatActivity() {
                 mybtn.text = "X"
                 validateWinner(btn)
                 currentPlayer = 2
+                tvPlayer1.setTextColor(Color.LTGRAY)
+                tvPlayer2.setTextColor(Color.MAGENTA)
             }
             else{
                 mybtn.text = "O"
                 validateWinner(btn)
                 currentPlayer = 1
+                tvPlayer1.setTextColor(Color.MAGENTA)
+                tvPlayer2.setTextColor(Color.LTGRAY)
             }
+            if (!gameFinished && validateDraw()) {
+                Toast.makeText(applicationContext, "Empate", Toast.LENGTH_LONG).show()
+                gameFinished = true
+            }
+
 
         }
     }
@@ -94,111 +105,156 @@ class GameActivity : AppCompatActivity() {
                     .show()
             }
             gameFinished = true
+
         }
 
     }
 
     private fun validateCards(btn: View): Boolean {
-        var bt1Val = bt1.text.toString().trim()
-        var bt2Val = bt2.text.toString().trim()
-        var bt3Val = bt3.text.toString().trim()
-        var bt4Val = bt4.text.toString().trim()
-        var bt5Val = bt5.text.toString().trim()
-        var bt6Val = bt6.text.toString().trim()
-        var bt7Val = bt7.text.toString().trim()
-        var bt8Val = bt8.text.toString().trim()
-        var bt9Val = bt9.text.toString().trim()
+        val bt1Val = bt1.text.toString().trim()
+        val bt2Val = bt2.text.toString().trim()
+        val bt3Val = bt3.text.toString().trim()
+        val bt4Val = bt4.text.toString().trim()
+        val bt5Val = bt5.text.toString().trim()
+        val bt6Val = bt6.text.toString().trim()
+        val bt7Val = bt7.text.toString().trim()
+        val bt8Val = bt8.text.toString().trim()
+        val bt9Val = bt9.text.toString().trim()
         var winner = false
 
         when(btn.id){
             bt1.id->{
-                if (!bt1Val.isEmpty() &&
-                (bt1Val.equals(bt2Val) && bt1Val.equals(bt3Val))
-                ||
-                (bt1Val.equals(bt5Val) && bt1Val.equals(bt9Val))
-                ||
-                (bt1Val.equals(bt4Val) && bt1Val.equals(bt7Val))) {
+                if ((!bt1Val.isEmpty() &&
+                            ((bt1Val == bt2Val) && (bt1Val == bt3Val)))
+                    ||
+                    ((bt1Val == bt5Val) && (bt1Val == bt9Val))
+                    ||
+                    ((bt1Val == bt4Val) && (bt1Val == bt7Val))
+                ) {
                     winner = true
                 }
             }
             bt2.id ->{
-                if (!bt2Val.isEmpty() &&
-                    (bt2Val.equals(bt1Val) && bt2Val.equals(bt3Val))
+                if ((!bt2Val.isEmpty() &&
+                            ((bt2Val == bt1Val) && (bt2Val == bt3Val)))
                     ||
-                    (bt2Val.equals(bt5Val) && bt1Val.equals(bt7Val))){
+                    ((bt2Val == bt5Val) && (bt2Val == bt8Val))
+                ){
                     winner = true
                 }
             }
             bt3.id -> {
-                if (!bt3Val.isEmpty() &&
-                    (bt3Val.equals(bt1Val) && bt3Val.equals(bt2Val))
+                if ((!bt3Val.isEmpty() &&
+                            ((bt3Val == bt1Val) && (bt3Val == bt2Val)))
                     ||
-                    (bt3Val.equals(bt6Val) && bt3Val.equals(bt9Val))
+                    ((bt3Val == bt6Val) && (bt3Val == bt9Val))
                     ||
-                    (bt3Val.equals(bt5Val) && bt3Val.equals(bt7Val))) {
+                    ((bt3Val == bt5Val) && (bt3Val == bt7Val))
+                ) {
                     winner = true
                 }
             }
             bt4.id -> {
-                if (!bt4Val.isEmpty() &&
-                    (bt4Val.equals(bt1Val) && bt4Val.equals(bt7Val))
+                if ((!bt4Val.isEmpty() &&
+                            ((bt4Val == bt1Val) && (bt4Val == bt7Val)))
                     ||
-                    (bt4Val.equals(bt5Val) && bt4Val.equals(bt6Val))) {
+                    ((bt4Val == bt5Val) && (bt4Val == bt6Val))
+                ) {
                     winner = true
                 }
             }
-            bt5.id -> {
-                if (!bt5Val.isEmpty() &&
-                    (bt5Val.equals(bt2Val) && bt5Val.equals(bt8Val))
-                    ||
-                    (bt5Val.equals(bt4Val) && bt5Val.equals(bt6Val))
-                    ||
-                    (bt5Val.equals(bt1Val) && bt5Val.equals(bt9Val))
-                    ||
-                    (bt5Val.equals(bt3Val) && bt5Val.equals(bt7Val))) {
-                    winner = true
-                }
+            bt5.id -> if ((!bt5Val.isEmpty() &&
+                        ((bt5Val == bt2Val) && (bt5Val == bt8Val)))
+                ||
+                ((bt5Val == bt4Val) && (bt5Val == bt6Val))
+                ||
+                ((bt5Val == bt1Val) && (bt5Val == bt9Val))
+                ||
+                ((bt5Val == bt3Val) && (bt5Val == bt7Val))
+            ) {
+                winner = true
             }
             bt6.id -> {
-                if (!bt6Val.isEmpty() &&
-                    (bt6Val.equals(bt3Val) && bt6Val.equals(bt9Val))
+                if ((!bt6Val.isEmpty() &&
+                            ((bt6Val == bt3Val) && (bt6Val == bt9Val)))
                     ||
-                    (bt6Val.equals(bt4Val) && bt5Val.equals(bt5Val))) {
+                    ((bt6Val == bt4Val) && (bt6Val == bt5Val))
+                ) {
                     winner = true
                 }
             }
             bt7.id -> {
-                if (!bt7Val.isEmpty() &&
-                    (bt7Val.equals(bt1Val) && bt7Val.equals(bt4Val))
+                if ((!bt7Val.isEmpty() &&
+                            ((bt7Val == bt1Val) && (bt7Val == bt4Val)))
                     ||
-                    (bt7Val.equals(bt5Val) && bt7Val.equals(bt3Val))
+                    ((bt7Val == bt5Val) && (bt7Val == bt3Val))
                     ||
-                    (bt7Val.equals(bt8Val) && bt7Val.equals(bt9Val))){
+                    ((bt7Val == bt8Val) && (bt7Val == bt9Val))
+                ){
                     winner = true
                 }
             }
             bt8.id -> {
-                if (!bt8Val.isEmpty() &&
-                    (bt8Val.equals(bt7Val) && bt8Val.equals(bt9Val))
+                if ((!bt8Val.isEmpty() &&
+                            ((bt8Val == bt7Val) && (bt8Val == bt9Val)))
                     ||
-                    (bt8Val.equals(bt2Val) && bt8Val.equals(bt5Val))) {
+                    ((bt8Val == bt2Val) && (bt8Val == bt5Val))
+                ) {
                     winner = true
                 }
             } bt9.id -> {
-                if (!bt9Val.isEmpty() &&
-                    (bt9Val.equals(bt3Val) && bt9Val.equals(bt6Val))
-                    ||
-                    (bt9Val.equals(bt5Val) && bt9Val.equals(bt1Val))
-                    ||
-                    (bt9Val.equals(bt7Val) && bt9Val.equals(bt8Val))) {
-                    winner = true
-                }
+            if ((!bt9Val.isEmpty() &&
+                        ((bt9Val == bt3Val) && (bt9Val == bt6Val)))
+                ||
+                ((bt9Val == bt5Val) && (bt9Val == bt1Val))
+                ||
+                ((bt9Val == bt7Val) && (bt9Val == bt8Val))
+            ) {
+                winner = true
             }
+        }
             else->{
-                    winner = false
-                }
+                winner = false
+            }
 
         }
         return winner
+    }
+    private fun validateDraw(): Boolean {
+        val bt1Val = bt1.text.toString().trim()
+        val bt2Val = bt2.text.toString().trim()
+        val bt3Val = bt3.text.toString().trim()
+        val bt4Val = bt4.text.toString().trim()
+        val bt5Val = bt5.text.toString().trim()
+        val bt6Val = bt6.text.toString().trim()
+        val bt7Val = bt7.text.toString().trim()
+        val bt8Val = bt8.text.toString().trim()
+        val bt9Val = bt9.text.toString().trim()
+
+        return bt1Val.isNotEmpty() &&
+                bt2Val.isNotEmpty() &&
+                bt3Val.isNotEmpty() &&
+                bt4Val.isNotEmpty() &&
+                bt5Val.isNotEmpty() &&
+                bt6Val.isNotEmpty() &&
+                bt7Val.isNotEmpty() &&
+                bt8Val.isNotEmpty() &&
+                bt9Val.isNotEmpty()
+    }
+
+    fun nuevapartida(view: View) {
+        bt1.text=""
+        bt2.text=""
+        bt3.text=""
+        bt4.text=""
+        bt5.text=""
+        bt6.text=""
+        bt7.text=""
+        bt8.text=""
+        bt9.text=""
+        gameFinished= false
+        currentPlayer = if(currentPlayer == 1) 2 else 1
+        tvPlayer1.setTextColor(if(currentPlayer == 1) Color.MAGENTA else Color.LTGRAY)
+        tvPlayer2.setTextColor(if(currentPlayer == 2) Color.MAGENTA else Color.LTGRAY)
     }
 }
