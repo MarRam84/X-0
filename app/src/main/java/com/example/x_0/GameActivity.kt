@@ -252,7 +252,7 @@ class GameActivity : AppCompatActivity() {
         bt7.text=""
         bt8.text=""
         bt9.text=""
-        gameFinished= false
+        gameFinished = false
         currentPlayer = if(currentPlayer == 1) 2 else 1
         tvPlayer1.setTextColor(if(currentPlayer == 1) Color.MAGENTA else Color.LTGRAY)
         tvPlayer2.setTextColor(if(currentPlayer == 2) Color.MAGENTA else Color.LTGRAY)

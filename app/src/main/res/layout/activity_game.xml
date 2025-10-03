@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -27,8 +28,8 @@
                 android:id="@+id/tvPlayer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/caesar_dressing"
-                android:text="Jugador 1"
+                android:fontFamily="@font/carter_one"
+                android:text="@string/jugador_1"
                 android:textAlignment="center"
                 android:textColor="@color/primary"
                 android:textSize="24sp"
@@ -38,13 +39,14 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:contentDescription="@string/todo_"
                 app:srcCompat="@drawable/icon_close_24" />
 
             <TextView
                 android:id="@+id/tvscoreplayer1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/__0"
                 android:textAlignment="center"
                 android:textSize="34sp" />
         </LinearLayout>
@@ -62,18 +64,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/caesar_dressing"
-                android:text="Jugador 2"
+                android:fontFamily="@font/carter_one"
+                android:text="@string/jugador_2"
                 android:textAlignment="center"
                 android:textColor="@color/primary"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="NestedWeights" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_weight="1"
+                android:importantForAccessibility="no"
                 app:srcCompat="@drawable/icon_circle_24" />
 
             <TextView
@@ -81,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="0"
+                android:text="@string/_0"
                 android:textAlignment="center"
                 android:textSize="34sp" />
         </LinearLayout>
@@ -94,6 +98,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -101,12 +106,13 @@
 
             <Button
                 android:id="@+id/bt1"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="cursive"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -114,12 +120,13 @@
 
             <Button
                 android:id="@+id/bt2"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -127,12 +134,13 @@
 
             <Button
                 android:id="@+id/bt3"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -140,6 +148,7 @@
         </LinearLayout>
 
         <LinearLayout
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -147,12 +156,13 @@
 
             <Button
                 android:id="@+id/bt4"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -160,12 +170,13 @@
 
             <Button
                 android:id="@+id/bt5"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -173,12 +184,13 @@
 
             <Button
                 android:id="@+id/bt6"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -186,6 +198,7 @@
         </LinearLayout>
 
         <LinearLayout
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -193,12 +206,13 @@
 
             <Button
                 android:id="@+id/bt7"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -206,12 +220,13 @@
 
             <Button
                 android:id="@+id/bt8"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -219,12 +234,13 @@
 
             <Button
                 android:id="@+id/bt9"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="@font/caesar_dressing"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
@@ -237,9 +253,9 @@
             android:layout_height="70dp"
             android:layout_margin="20dp"
             android:backgroundTint="@color/white"
-            android:fontFamily="@font/caesar_dressing"
+            android:fontFamily="@font/carter_one"
             android:onClick="nuevapartida"
-            android:text="NUEVA PARTIDA"
+            android:text="@string/nueva_partida"
             android:textColor="@color/primary"
             android:textSize="24sp"
             android:textStyle="bold" />

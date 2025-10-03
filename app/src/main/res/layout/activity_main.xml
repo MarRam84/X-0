@@ -14,7 +14,8 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            tools:ignore="UselessParent">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -36,10 +37,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-smallcaps"
-                        android:text="JUGADORES"
+                        android:text="@string/jugadores"
                         android:textAlignment="center"
                         android:textColor="@color/primary"
-                        android:textSize="36dp"
+                        android:textSize="36sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -47,37 +48,43 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="15dp"
+                        android:autofillHints=""
                         android:background="@drawable/line"
-                        android:drawableLeft="@drawable/icon_close_24"
+                        android:drawableStart="@drawable/icon_close_24"
                         android:drawablePadding="8dp"
                         android:ems="10"
-                        android:hint="Nombre del primer jugador"
+                        android:hint="@string/nombre_del_primer_jugador"
                         android:inputType="text"
-                        android:paddingLeft="20dp"
-                        android:textColor="@color/primary" />
+                        android:paddingStart="20dp"
+                        android:textColor="@color/primary"
+                        tools:ignore="RtlSymmetry" />
 
                     <EditText
                         android:id="@+id/etPlayer2"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="15dp"
+                        android:autofillHints=""
                         android:background="@drawable/line"
-                        android:drawableLeft="@drawable/icon_circle_24"
+                        android:drawableStart="@drawable/icon_circle_24"
                         android:drawablePadding="8dp"
                         android:ems="10"
                         android:hint="Nombre del segundo jugador"
                         android:inputType="text"
-                        android:paddingLeft="20dp"
-                        android:textColor="@color/primary" />
+                        android:paddingStart="20dp"
+                        android:textColor="@color/primary"
+                        tools:ignore="HardcodedText,RtlSymmetry" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/btnStartGame"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="30dp"
-                        android:backgroundTint="@color/primary"
+                        android:background="@drawable/button_background"
+                        android:enabled="false"
                         android:onClick="nextScreen"
-                        android:text="INICIAR JUEGO"
+                        android:text="@string/iniciar_juego"
+                        android:textColor="@color/button_state"
                         android:textSize="24sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -87,9 +94,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:alpha="0.8"
+                android:contentDescription="@string/todo"
                 android:onClick="nextScreen"
                 android:scaleType="centerCrop"
-                app:srcCompat="@drawable/fondo" />
+                app:srcCompat="@drawable/fondo"
+                tools:ignore="ContentDescription" />
         </FrameLayout>
     </LinearLayout>
 
