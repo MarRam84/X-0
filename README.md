@@ -1,4 +1,8 @@
-# 🎮 X-0 – App Android en Kotlin
+Aquí tienes tu README completamente adaptado a la lógica y estructura de tu app Tic Tac Toe en Kotlin. Está redactado en español, con un tono profesional y directo, ideal para tu portafolio o repositorio:
+
+---
+
+# 🎮 X-0– App Android en Kotlin
 
 Aplicación móvil desarrollada en Android/Kotlin que permite jugar el clásico juego de Tres en Línea entre dos jugadores. Incluye detección de ganador, empate, reinicio de partida y sistema de puntuación.
 
