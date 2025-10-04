@@ -112,7 +112,7 @@
                 android:layout_margin="9dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
-                android:fontFamily="cursive"
+                android:fontFamily="@font/carter_one"
                 android:onClick="play"
                 android:textColor="@color/primary"
                 android:textSize="60sp"
